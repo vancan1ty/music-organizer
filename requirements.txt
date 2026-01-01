@@ -1,0 +1,14 @@
+# Music Organizer Tool - Python Dependencies
+
+# Audio file metadata handling
+mutagen>=1.47.0
+
+# Audio fingerprinting via AcoustID
+pyacoustid>=1.3.0
+
+# MusicBrainz API client
+musicbrainzngs>=0.7.1
+
+# Additional dependencies pulled in by pyacoustid
+requests>=2.31.0
+audioread>=3.0.0
