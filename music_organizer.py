@@ -389,12 +389,16 @@ class MusicOrganizer:
     def find_audio_files(self) -> List[Path]:
         """
         Recursively find all audio files in source directory.
+        Skips the 'unorganized' folder to avoid reprocessing files.
 
         Returns:
             List of audio file paths
         """
         audio_files = []
         for root, dirs, files in os.walk(self.source_dir):
+            # Skip the unorganized directory to avoid reprocessing files
+            dirs[:] = [d for d in dirs if d != 'unorganized']
+
             for file in files:
                 file_path = Path(root) / file
                 if file_path.suffix.lower() in AUDIO_EXTENSIONS:
